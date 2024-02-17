@@ -23,13 +23,9 @@ pipeline {
                 sh "mvn clean package"
             }
         }
-        stage("Sonarqube Testing"){
-            steps {
-                scripts {
-                    withSonarQubeEnv(credentialsId: "ace76f06-b6d9-4692-bb6c-05391c25110f"){
-                    sh "mvn sonar:sonar"
-                    }
-                }
+        stage('SonarQube analysis') {
+            withSonarQubeEnv(credentialsId: 'ace76f06-b6d9-4692-bb6c-05391c25110f', installationName: 'sonarqube-scan') { // You can override the credential to be used
+                sh 'mvn sonar:sonar'
             }
         }
     }
