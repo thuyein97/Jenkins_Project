@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'Agent_VM' }
+    agent { label '!built-in' }
     tools {
         maven 'Maven_'
         jdk 'JDK_'
