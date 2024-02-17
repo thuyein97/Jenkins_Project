@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage("Checkout Git"){
-            setps {
+            steps {
                 script {
                     git branch: 'main',
                         url: 'https://github.com/thuyein97/Jenkins_Project'
