@@ -24,7 +24,7 @@ erpipeline {
             }
         }
         stage('SonarQube analysis') {
-            withSonarQubeEnv(credentialsId: 'ace76f06-b6d9-4692-bb6c-05391c25110f', installationName: 'sonarqube-server') { // You can override the credential to be used
+            withSonarQubeEnv(credentialsId: 'ace76f06-b6d9-4692-bb6c-05391c25110f', installationName: 'sonarqube-server') {
                 sh 'mvn sonar:sonar'
             }
         }
