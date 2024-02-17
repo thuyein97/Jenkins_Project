@@ -12,7 +12,8 @@ pipeline {
         }
         stage("Checkout Git"){
             setps {
-                git branch 'main', url https://github.com/thuyein97/Jenkins_Project
+                git branch: 'main',
+                    url: https://github.com/thuyein97/Jenkins_Project
             }
         }
         stage("Build and Test"){
