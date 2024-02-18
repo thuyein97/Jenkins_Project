@@ -18,19 +18,19 @@ erpipeline {
                 }
             }
         }
-        stage("Build and Test"){
+        stage("Build Application"){
             steps {
                 sh "mvn clean package"
             }
         }
-        stage('build && SonarQube analysis') {
-            steps {
-                withSonarQubeEnv('sonarqube-server') {
-                    withMaven(maven:'Maven 5.0') {
-                        sh 'mvn clean package sonar:sonar'
-                    }
-                }
-            }
-        }
+        stage("SonarQube Analysis"){
+           steps {
+	           script {
+		            withSonarQubeEnv(credentialsId: 'ace76f06-b6d9-4692-bb6c-05391c25110f') { 
+                    sh "mvn sonar:sonar"
+		            }
+	           }	
+           }
+       }
     }
 }
