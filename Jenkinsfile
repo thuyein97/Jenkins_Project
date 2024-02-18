@@ -32,5 +32,12 @@ pipeline {
 	           }	
            }
        }
+	stage("Quality Gate"){
+	    steps {
+		    script {
+                    	waitForQualityGate abortPipeline: false, credentialsId: 'ace76f06-b6d9-4692-bb6c-05391c25110f'
+                    }
+	    }
+	}
     }
 }
